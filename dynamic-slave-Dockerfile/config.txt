@@ -1,0 +1,20 @@
+kind: Config
+
+clusters:
+- cluster:
+        server: https://192.168.99.101:8443
+        certificate-authority: /home/jenkins/ca.crt
+  name: mycluster
+
+contexts:
+- context:
+        cluster: mycluster
+        user: jen
+  name: mycontext
+current-context: mycontext
+
+users:
+- name: jen
+  user:
+          client-key: /home/jenkins/client.key
+          client-certificate: /home/jenkins/client.crt

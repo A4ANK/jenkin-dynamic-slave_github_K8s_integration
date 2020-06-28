@@ -1,0 +1,4 @@
+dynamic-slave-Dockerfile\kubectl
+dynamic-slave-Dockerfile\ca.crt
+dynamic-slave-Dockerfile\client.crt
+dynamic-slave-Dockerfile\client.key
