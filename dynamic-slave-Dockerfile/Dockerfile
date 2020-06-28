@@ -11,4 +11,5 @@ COPY kubectl /usr/local/bin/
 COPY ca.crt /home/jenkins/ca.crt
 COPY client.crt /home/jenkins/client.crt
 COPY client.key /home/jenkins/client.key
+RUN apt-get -qy install curl
 CMD ["/usr/sbin/sshd","-D"]
