@@ -16,7 +16,7 @@
 
 ## Prerequisites:- 
 A pre-installed K8s cluster(e.g. minikube). In minikube by default, there is no internal NFS dynamic provisioner is available for the storage class so it can claim a PVC or PV dynamically. so we are creating a NFS-client dynamic provisioner in the K8s cluster using a service account, cluster roles, etc., which basically uses RBAC (role-based access controls) Authorization.
-[follow this repo](https://medium.com/@A4ANK/integration-of-kubernetes-using-nfs-server-3rd-party-nfs-client-dynamic-provisioning-with-298e33c89fbe?source=friends_link&sk=0eca13840760743de585cff57248609b)
+###### [follow this repo](https://medium.com/@A4ANK/integration-of-kubernetes-using-nfs-server-3rd-party-nfs-client-dynamic-provisioning-with-298e33c89fbe?source=friends_link&sk=0eca13840760743de585cff57248609b) for creating NFS-client dynamic provisioner in the K8s cluster using a service account, cluster roles, etc.
 
 https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 
