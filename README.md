@@ -1,17 +1,17 @@
 # Integration of K8s, GitHub, and Jenkins
-## (jobs building on containers == Dynamic Slaves).
+## (jobs building on containers == Dynamic Agents).
 ![completeview](images/complete.png)
 
 ## Tasks to be created:-
-1. Create container image that has linux distribution and other basic configuration required to run a cloud node slave for Jenkins.
+1. Create container image that has linux distribution and other basic configuration required to run a cloud node agent for Jenkins.
 (e.g. Here we require kubectl to be configured inside that node.)
-2. When we launch the job it should automatically starts job on cloud node slave based on the labels provided for dynamic approach to run the jobs.
+2. When we launch the job it should automatically starts job on cloud node agent based on the labels provided for dynamic approach to run the jobs.
 3. Create a job chain of job1 & job2 using build pipeline plugin in Jenkins.
 4. Job1 :- Pull  the Github repo automatically when some developers push repo to Github(using local hooks and web-hooks) and perform the following operations as:
   1. Create the new image dynamically for the application and copy the application code into that corresponding docker image
   2. Push that image to the docker hub (Public repository)  or any private repo (registry).
      (Github code contain the application code and Dockerfile to create a new image)
-5. Job2 :- (Should be run on the dynamic slave of Jenkins configured with K8s kubectl command): Launch the application on the top of K8s cluster performing following operations:
+5. Job2 :- (Should be run on the dynamic agent of Jenkins configured with K8s kubectl command): Launch the application on the top of K8s cluster performing following operations:
   1. If launching first time then create a deployment of the pod using the image created in the previous job else if deployment already exists then do rollout of the existing pod making zero downtime  for the user.
   2. If Application created first time, then expose the application else don’t expose it.
 
@@ -59,7 +59,7 @@ LISTEN   0         128                       *:4243                   *:*       
 ![job1.2](images/job1.2.png)
 
 # Job2
-###### (Should be run on the dynamic slave of Jenkins configured with K8s kubectl command): Launch the application on the top of K8s cluster performing following operations:
+###### (Should be run on the dynamic agent of Jenkins configured with K8s kubectl command): Launch the application on the top of K8s cluster performing following operations:
   1. If launching first time then create a deployment of the pod using the image created in the previous job. Else if deployment already exists then do rollout of the existing pod making zero downtime for the user.
   2. If Application created first time, then Expose the application. Else don't expose it.
 ![job2.1](images/job2.1.png)
